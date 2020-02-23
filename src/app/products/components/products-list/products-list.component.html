@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-products-filter (onFilter)="fetchProducts($event)"></app-products-filter>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let product of products">
+            <app-product [product]="product"></app-product>
+        </div>
+        <div class="col-sm-12 mt-5" *ngIf="!productsLoaded">
+            <app-loader></app-loader>
+        </div>
+        <div class="col-sm-12 align-middle mt-5" *ngIf="productsLoaded && products.length === 0">
+            <p class="text-center">No items to display.</p>
+        </div>
+    </div>
+</div>

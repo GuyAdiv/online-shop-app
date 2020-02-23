@@ -1,0 +1,26 @@
+<div class="form-inline my-2 my-lg-0">
+    <div class="mr-sm-2 ng-autocomplete">
+        <ng-autocomplete 
+            [data]="data"
+            [searchKeyword]="keyword"
+            (inputChanged)='onChangeSearch($event)'
+            (inputFocused)='onFocused($event)'
+            [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate"
+            [(ngModel)]="search">                                 
+        </ng-autocomplete>
+            
+        <ng-template #itemTemplate let-item>
+            <a [innerHTML]="item.name"></a>
+        </ng-template>
+            
+        <ng-template #notFoundTemplate let-notFound>
+            <div [innerHTML]="notFound"></div>
+        </ng-template>
+    </div>
+    <button
+        class="btn btn-dark my-2 my-sm-0"
+        type="submit"
+        (click)="onBtnSearchClick()">Search</button>
+</div>
+

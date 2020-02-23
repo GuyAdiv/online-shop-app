@@ -1,0 +1,65 @@
+<div>
+    <h2>
+        Shopping Cart
+    </h2>
+    <div *ngIf="itemsInCart.length > 0">
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <small>Price</small>
+            </div>
+        </div>
+        <div class="row border-top pt-3 pb-3"
+        *ngFor="let item of itemsInCart">
+            <div class="col-md-2">
+                <div class="product-img-container">
+                    <i class="far fa-image"></i>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                    <a [routerLink]="['/products', item.productId]">{{item.name}}</a> 
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <div class="btn-group" role="group">
+                            <div class="btn-group" role="group">
+                                <button id="ddlProductAmount" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown">
+                                    Qty: {{item.qty}}
+                                </button>
+                                <div class="dropdown-menu">
+                                    <button 
+                                        class="dropdown-item" 
+                                        *ngFor="let number of [1,2,3,4,5]"
+                                        (click)="setItemQty(item, number)"
+                                    >
+                                        {{number}}
+                                    </button>
+                                </div>
+                            </div>
+                            <button 
+                                type="button" 
+                                class="btn btn-link"
+                                (click)="onDeleteProduct(item)">
+                                delete
+                            </button>                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-right">
+                <span>{{(item.price * item.qty) | number}}$</span>
+            </div>
+        </div>
+        <div class="row border-top pt-3">
+            <div class="col-md-12 text-right">
+                <span>Subtotal ({{totalItems}} items): </span>
+                <strong>{{totalPrice | number}}$</strong>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5" *ngIf="itemsInCart.length === 0">
+        <p>Your cart is empty.</p>
+    </div>
+</div>

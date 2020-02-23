@@ -1,0 +1,17 @@
+.product-item {
+    height: 98%;
+
+    .product-img-container {
+        font-size: 100px;
+        text-align: center;
+        background-color: #fafafa;
+        height: 200px;
+        width: auto;
+        border: 1px solid #ccc;
+        color: #ccc;
+
+        i {
+            vertical-align: middle;
+        }
+    }
+}

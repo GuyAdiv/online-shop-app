@@ -1,0 +1,25 @@
+<div class="mt-2">
+    <div class="row">
+        <div class="col-md-8">
+            <app-search (onSearch)="onSearch($event)"></app-search>
+        </div>
+        <div class="col-md-4 text-right">
+            <div class="btn-group" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                        <span>Sort By</span>
+                        <span class="ml-1" *ngIf="selectedSort">{{selectedSort.key}}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" 
+                            *ngFor="let item of productSortBy | keyvalue" 
+                            (click)="sortBy(item.value)">
+                            {{item.value.key}}
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-secondary" (click)="clearSort()">Clear</button>
+            </div>
+        </div>
+    </div>
+</div>

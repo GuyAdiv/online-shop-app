@@ -1,0 +1,22 @@
+.ng-autocomplete {
+    width: 400px;
+}
+
+:host ::ng-deep .ng-autocomplete .autocomplete-container {
+    box-shadow: none;
+    .input-container {
+        input {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .x {
+            background-color: #fff;
+            top: 48%;
+        }
+    }
+}
+
+.autocomplete-container {
+    box-shadow: none;
+}
+
